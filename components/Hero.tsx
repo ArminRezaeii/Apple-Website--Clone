@@ -15,8 +15,14 @@ function Hero() {
       y:-5,
     
     })
-  }, {})
-  const [videoSrc, setVideoSrc] = useState(window.innerWidth < 760 ? "/assets/videos/smallHero.mp4" : "/assets/videos/hero.mp4")
+  }, [])
+  const [videoSrc, setVideoSrc] = useState("");
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const initialVideoSrc = window.innerWidth < 760 ? "/assets/videos/smallHero.mp4" : "/assets/videos/hero.mp4";
+      setVideoSrc(initialVideoSrc);
+    }
+  }, []);
   const handleVideoSrcSet = () => {
     if (window.innerWidth < 760) {
       setVideoSrc("/assets/videos/smallHero.mp4")
