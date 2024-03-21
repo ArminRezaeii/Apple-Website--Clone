@@ -98,7 +98,7 @@ const Model = () => {
                                     : undefined
                             }
                         >
-                            <View.Port />
+                            {/* <View.Port /> */}
                         </Canvas>
                     </div>
 
