@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Iphone 15",
+  title: "Apple",
   description: "Apple website clone",
 };
 
