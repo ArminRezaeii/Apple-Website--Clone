@@ -82,7 +82,7 @@ const Model = () => {
                             size={size}
                         />
 
-                        {/* <Canvas
+                        <Canvas
                             className="w-full  z-0 h-full"
                             style={{
                                 position: 'fixed',
@@ -99,7 +99,7 @@ const Model = () => {
                             }
                         >
                             <View.Port />
-                        </Canvas> */}
+                        </Canvas>
                     </div>
 
                     <div className="mx-auto w-full">
