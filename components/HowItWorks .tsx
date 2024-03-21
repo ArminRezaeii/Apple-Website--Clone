@@ -25,7 +25,7 @@ function HowItWorks() {
             ease: 'power2.inOut'
         }, {})
     }, []);
-    const videoRef=useRef(null)
+    const videoRef = useRef(null)
     return (
         <section className="common-padding">
             <div className="screen-max-width">
@@ -40,7 +40,7 @@ function HowItWorks() {
                     </h2>
 
                     <p className="hiw-subtitle">
-                        It's here. The biggest redesign in the history of Apple GPUs.
+                        It&apos;s here. The biggest redesign in the history of Apple GPUs.
                     </p>
                 </div>
 
@@ -67,14 +67,14 @@ function HowItWorks() {
                 <div className="hiw-text-container">
                     <div className="flex flex-1 justify-center flex-col">
                         <p className="hiw-text g_fadeIn">
-                            A17 Pro is an entirely new class of iPhone chip that delivers our {' '}
+                            A17 Pro is an entirely new class of iPhone chip that delivers our
                             <span className="text-white">
                                 best graphic performance by far
                             </span>.
                         </p>
 
                         <p className="hiw-text g_fadeIn">
-                            Mobile {' '}
+
                             <span className="text-white">
                                 games will look and feel so immersive
                             </span>,

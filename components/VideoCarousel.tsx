@@ -6,6 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 import { useEffect, useRef, useState } from "react";
 
 import { hightlightsSlides } from "../constants";
+import Image from "next/image";
 const VideoCarousel = () => {
   const videoRef = useRef<any>([]);
   const videoSpanRef = useRef<(HTMLSpanElement | null)[]>([]);
@@ -213,7 +214,9 @@ const VideoCarousel = () => {
         </div>
 
         <button className="control-btn">
-          <img
+          <Image
+          width={24}
+          height={24}
             src={isLastVideo ? "/assets/images/replay.svg" : !isPlaying ? "/assets/images/play.svg" : "/assets/images/pause.svg"}
             alt={isLastVideo ? "replay" : !isPlaying ? "play" : "pause"}
             onClick={

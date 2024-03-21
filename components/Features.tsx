@@ -18,7 +18,7 @@ function Features() {
             }
         })
 
-        animateWithGsap('#features_title', { y: 0, opacity: 1 },{})
+        animateWithGsap('#features_title', { y: 0, opacity: 1 }, {})
         animateWithGsap(
             '.g_grow',
             { scale: 1, opacity: 1, ease: 'power1' },
@@ -26,7 +26,7 @@ function Features() {
         );
         animateWithGsap(
             '.g_text',
-            { y: 0, opacity: 1, ease: 'power2.inOut', duration: 1 },{}
+            { y: 0, opacity: 1, ease: 'power2.inOut', duration: 1 }, {}
         )
     }, []);
     const videoRef = useRef<HTMLVideoElement>(null)
@@ -53,17 +53,17 @@ function Features() {
                         <div className="flex flex-col w-full relative">
                             <div className="feature-video-container">
                                 <div className="overflow-hidden flex-1 h-[50vh]">
-                                    <img src="/assets/images/explore1.jpg" alt="titanium" className="feature-video g_grow" />
+                                    <Image width={510} height={459} src="/assets/images/explore1.jpg" alt="titanium" className="feature-video g_grow" />
                                 </div>
                                 <div className="overflow-hidden flex-1 h-[50vh]">
-                                    <img src="/assets/images/explore2.jpg" alt="titanium 2" className="feature-video g_grow" />
+                                    <Image width={510} height={459} src="/assets/images/explore2.jpg" alt="titanium 2" className="feature-video g_grow" />
                                 </div>
                             </div>
 
                             <div className="feature-text-container">
                                 <div className="flex-1 flex-center">
                                     <p className="feature-text g_text">
-                                        iPhone 15 Pro is {' '}
+                                        iPhone 15 Pro is
                                         <span className="text-white">
                                             the first iPhone to feature an aerospace-grade titanium design
                                         </span>,
@@ -74,10 +74,7 @@ function Features() {
                                 <div className="flex-1 flex-center">
                                     <p className="feature-text g_text">
                                         Titanium has one of the best strength-to-weight ratios of any metal, making these our {' '}
-                                        <span className="text-white">
-                                            lightest Pro models ever.
-                                        </span>
-                                        You'll notice the difference the moment you pick one up.
+                                        <span className="text-white">lightest Pro models ever.</span> You&apos;ll notice the difference the moment you pick one up.
                                     </p>
                                 </div>
 

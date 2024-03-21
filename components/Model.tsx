@@ -47,7 +47,7 @@ const Model = () => {
                 duration: 2
             })
         }
-    }, [size])
+    }, [size,largeRotation,smallRotation,tl])
 
     useGSAP(() => {
         gsap.to('#heading', { y: 0, opacity: 1 })
