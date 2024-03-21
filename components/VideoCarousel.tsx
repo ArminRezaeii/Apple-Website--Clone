@@ -7,9 +7,9 @@ import { useEffect, useRef, useState } from "react";
 
 import { hightlightsSlides } from "../constants";
 const VideoCarousel = () => {
-  const videoRef = useRef([]);
-  const videoSpanRef = useRef([]);
-  const videoDivRef = useRef([]);
+  const videoRef = useRef<HTMLVideoElement[]>([]);
+  const videoSpanRef = useRef<(HTMLSpanElement | null)[]>([]);
+  const videoDivRef = useRef<(HTMLSpanElement | null)[]>([]);
 
   // video and indicator
   const [video, setVideo] = useState({
@@ -20,7 +20,7 @@ const VideoCarousel = () => {
     isPlaying: false,
   });
 
-  const [loadedData, setLoadedData] = useState([]);
+  const [loadedData, setLoadedData] = useState<HTMLVideoElement[]>([]);
   const { isEnd, isLastVideo, startPlay, videoId, isPlaying } = video;
 
   useGSAP(() => {
@@ -123,7 +123,7 @@ const VideoCarousel = () => {
   }, [startPlay, videoId, isPlaying, loadedData]);
 
   // vd id is the id for every video until id becomes number 3
-  const handleProcess = (type, i) => {
+  const handleProcess = (type: string, i: number) => {
     switch (type) {
       case "video-end":
         setVideo((pre) => ({ ...pre, isEnd: true, videoId: i + 1 }));
@@ -150,7 +150,10 @@ const VideoCarousel = () => {
     }
   };
 
-  const handleLoadedMetaData = (i, e) => setLoadedData((pre) => [...pre, e]);
+  const handleLoadedMetaData = (i: number, e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    const videoElement = e.currentTarget as HTMLVideoElement;
+    setLoadedData((pre) => [...pre, videoElement]);
+  };
 
   return (
     <>
@@ -166,11 +169,11 @@ const VideoCarousel = () => {
                     } pointer-events-none`}
                   preload="auto"
                   muted
-                  ref={(el) => (videoRef.current[i] = el)}
+                  ref={(el) => (el && (videoRef.current[i] = el))}
                   onEnded={() =>
                     i !== 3
                       ? handleProcess("video-end", i)
-                      : handleProcess("video-last")
+                      : handleProcess("video-last", i)
                   }
                   onPlay={() =>
                     setVideo((pre) => ({ ...pre, isPlaying: true }))
@@ -191,7 +194,7 @@ const VideoCarousel = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div >
 
       <div className="relative flex-center mt-10">
         <div className="flex-center py-5 px-7 bg-gray-300 backdrop-blur rounded-full">
@@ -199,7 +202,7 @@ const VideoCarousel = () => {
             <span
               key={i}
               className="mx-2 w-3 h-3 bg-gray-200 rounded-full relative cursor-pointer"
-              ref={(el) => (videoDivRef.current[i] = el)}
+              ref={(el) => (el && (videoDivRef.current[i] = el))}
             >
               <span
                 className="absolute h-full w-full rounded-full"
@@ -215,10 +218,10 @@ const VideoCarousel = () => {
             alt={isLastVideo ? "replay" : !isPlaying ? "play" : "pause"}
             onClick={
               isLastVideo
-                ? () => handleProcess("video-reset")
+                ? () => handleProcess("video-reset", 1)
                 : !isPlaying
-                  ? () => handleProcess("play")
-                  : () => handleProcess("pause")
+                  ? () => handleProcess("play", 1)
+                  : () => handleProcess("pause", 2)
             }
           />
         </button>
