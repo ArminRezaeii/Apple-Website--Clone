@@ -1,22 +1,27 @@
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
 import Highlights from "@/components/Highlights";
 import HowItWorks from "@/components/HowItWorks ";
-import Model from "@/components/Model";
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
-
+import dynamic from "next/dynamic";
+const DynamicHero = dynamic(() => import("@/components/Hero"), {
+  ssr: false,
+  loading: () => <p></p>
+});
+const DynamicModel = dynamic(() => import("@/components/Model"), {
+  ssr: false,
+  loading: () => <p></p>
+});
 export default function Home() {
   return (
     <main className="bg-black">
       <Navbar />
-      <Hero />
+      <DynamicHero />
       <Highlights />
-      <Model/>
-      <Features/>
-      <HowItWorks/>
-      <Footer/>
+      <DynamicModel />
+      <Features />
+      <HowItWorks />
+      <Footer />
     </main>
   );
 }
