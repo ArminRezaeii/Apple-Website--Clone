@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Apple Clone",
-  description: "Apple website clone",
+  title: "iPhone 15",
+  description: "iPhone 15 website clone",
 };
 
 export default function RootLayout({
