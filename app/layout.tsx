@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Apple",
-  description: "Apple website clone",
+  title: "next js",
+  description: "next js",
 };
 
 export default function RootLayout({
